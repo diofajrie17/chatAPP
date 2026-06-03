@@ -77,6 +77,7 @@
 
 - [ ] **PWA-01**: App has manifest/icon/service-worker behavior needed for Add to Home Screen testing.
 - [ ] **PWA-02**: PWA install behavior is manually verified on target mobile browsers.
+- [ ] **REPO-01**: Local git repository is connected to `https://github.com/diofajrie17/chatAPP.git` as `origin` for fetch and push.
 - [ ] **BIZ-01**: Data model can support future multiple-couple operation without changing the personal MVP user experience.
 - [ ] **BIZ-02**: Future invite/onboarding flow is designed for admin-controlled couple creation.
 - [ ] **BIZ-03**: Deployment checklist documents Firebase config, rules deployment, environment variables, and rollback basics.
@@ -130,6 +131,7 @@
 | DASH-01 | Phase 1 | Pending |
 | DASH-02 | Phase 1 | Pending |
 | PWA-01 | Phase 1 | Pending |
+| REPO-01 | Phase 1 | Pending |
 | CHAT-01 | Phase 2 | Pending |
 | CHAT-02 | Phase 2 | Pending |
 | CHAT-03 | Phase 2 | Pending |
@@ -168,10 +170,10 @@
 | BIZ-04 | Phase 5 | Pending |
 
 **Coverage:**
-- v1 requirements: 47 total
-- Mapped to phases: 47
+- v1 requirements: 48 total
+- Mapped to phases: 48
 - Unmapped: 0
 
 ---
 *Requirements defined: 2026-06-03*
-*Last updated: 2026-06-03 after initialization from .codex/PRD.md*
+*Last updated: 2026-06-03 after adding Phase 1 GitHub repository setup*

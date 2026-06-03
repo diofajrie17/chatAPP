@@ -10,7 +10,7 @@ The MVP moves from a private two-person Firebase foundation to encrypted realtim
 - Integer phases (1, 2, 3): Planned milestone work
 - Decimal phases (2.1, 2.2): Urgent insertions (marked with INSERTED)
 
-- [ ] **Phase 1: Basic Private Space** - Finish and verify the two-user Nuxt/Firebase private space foundation.
+- [ ] **Phase 1: Basic Private Space** - Finish and verify the two-user Nuxt/Firebase private space foundation and GitHub repository connection.
 - [ ] **Phase 2: Basic Encrypted Chat** - Add client-side encrypted realtime text chat and generic message notifications.
 - [ ] **Phase 3: Couple Memories** - Add encrypted notes, shared photo album, anniversary enhancements, and personalization.
 - [ ] **Phase 4: Security Hardening** - Add rules tests, encryption tests, threat model, XSS/CSP review, and privacy checks.
@@ -22,13 +22,14 @@ The MVP moves from a private two-person Firebase foundation to encrypted realtim
 **Goal:** As one approved partner, I want to sign in and see our private couple dashboard, so that only the two configured members can access the couple space.
 **Mode:** mvp
 **Depends on:** Nothing (first phase)
-**Requirements:** [AUTH-01, AUTH-02, AUTH-03, AUTH-04, SPCE-01, SPCE-02, SPCE-03, SPCE-04, DASH-01, DASH-02, PWA-01]
+**Requirements:** [AUTH-01, AUTH-02, AUTH-03, AUTH-04, SPCE-01, SPCE-02, SPCE-03, SPCE-04, DASH-01, DASH-02, PWA-01, REPO-01]
 **Success Criteria** (what must be TRUE):
   1. User can sign in, refresh, and remain authenticated until logout.
   2. Dashboard loads only after authentication and shows the configured couple name.
   3. Firestore rules allow the two configured members to read their own user and couple documents.
   4. Unknown users cannot create arbitrary couple spaces or read/write couple data.
   5. The app has the PWA metadata baseline needed for Add to Home Screen testing.
+  6. Local git remote `origin` is configured to `https://github.com/diofajrie17/chatAPP.git` for fetch and push.
 **Plans:** 0 plans
 
 Plans:

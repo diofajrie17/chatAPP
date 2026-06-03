@@ -6,7 +6,7 @@
 <domain>
 ## Phase Boundary
 
-Phase 1 finishes the private two-user Nuxt/Firebase foundation. It covers sign-in, session persistence, seeded user/couple data, authenticated dashboard, member-only Firestore access, safe couple metadata editing, calm access-error states, and install metadata for a PWA baseline.
+Phase 1 finishes the private two-user Nuxt/Firebase foundation. It covers sign-in, session persistence, seeded user/couple data, authenticated dashboard, member-only Firestore access, safe couple metadata editing, calm access-error states, install metadata for a PWA baseline, and local GitHub repository setup.
 
 This phase does not add chat, encrypted message storage, notes, album uploads, push notifications, public onboarding, group membership, or business/SaaS flows.
 
@@ -44,6 +44,10 @@ This phase does not add chat, encrypted message storage, notes, album uploads, p
 - **D-20:** Use simple generated/static icons matching the current app palette; do not use personal/couple imagery in Phase 1.
 - **D-21:** PWA verification should be a documented manual Add to Home Screen check on target device/browser.
 
+### GitHub Repository Setup
+- **D-22:** Phase 1 must ensure the local git repository has `origin` configured to `https://github.com/diofajrie17/chatAPP.git` for fetch and push.
+- **D-23:** Phase 1 should verify the remote with `git remote -v`; pushing is a separate user-controlled action unless explicitly requested.
+
 ### the agent's Discretion
 - Technical implementation details are open as long as they preserve the locked decisions above and existing Nuxt/Firebase patterns.
 - The planner may decide exact component/composable structure for `/settings`, validation helpers, and Firestore update calls.
@@ -76,6 +80,7 @@ This phase does not add chat, encrypted message storage, notes, album uploads, p
 - `firestore.rules` - Existing read-only member access rules.
 - `scripts/seedFirebase.mjs` - Existing trusted seed script for two users and one couple document.
 - `assets/css/main.css` - Current visual palette and component styling patterns.
+- `.git/config` - Local-only git remote configuration; verify `origin` points to `https://github.com/diofajrie17/chatAPP.git`.
 
 </canonical_refs>
 
@@ -102,6 +107,7 @@ This phase does not add chat, encrypted message storage, notes, album uploads, p
 - Add Firestore update support for `couples/{coupleId}.displayName` and `couples/{coupleId}.anniversaryDate`.
 - Update `firestore.rules` to allow member-only updates for those two safe fields while preserving immutable `memberIds`.
 - Update docs with manual PWA Add to Home Screen verification steps.
+- Verify local git remote setup with `git remote -v`.
 
 </code_context>
 
@@ -115,6 +121,7 @@ This phase does not add chat, encrypted message storage, notes, album uploads, p
   - non-member: "private space unavailable"
 - `/settings` should be visibly reachable but not dominate the dashboard.
 - Manifest display name should be `Our Private Space`.
+- GitHub remote URL should be `https://github.com/diofajrie17/chatAPP.git`.
 
 </specifics>
 

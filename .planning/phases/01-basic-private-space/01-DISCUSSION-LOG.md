@@ -5,7 +5,7 @@
 
 **Date:** 2026-06-03
 **Phase:** 01-Basic Private Space
-**Areas discussed:** Seeded Setup Policy, Dashboard Shape, Access Errors, PWA Baseline
+**Areas discussed:** Seeded Setup Policy, Dashboard Shape, Access Errors, PWA Baseline, GitHub Repository Setup
 
 ---
 
@@ -201,6 +201,7 @@
 - Exact component/composable structure for settings.
 - Exact calm error copy, as long as it matches the selected tone and hides technical details.
 - Exact generated icon files and palette application.
+- Exact placement of GitHub remote verification in the plan, as long as Phase 1 verifies `origin` points to `https://github.com/diofajrie17/chatAPP.git`.
 
 ## Deferred Ideas
 
