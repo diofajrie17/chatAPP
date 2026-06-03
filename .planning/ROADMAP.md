@@ -34,10 +34,25 @@ The MVP moves from a private two-person Firebase foundation to encrypted realtim
   5. The app has the PWA metadata baseline needed for Add to Home Screen testing.
   6. Local git remote `origin` is configured to `https://github.com/diofajrie17/chatAPP.git` for fetch and push.
 
-**Plans:** 0 plans
+**Plans:** 4 plans
+
 Plans:
 
-- [ ] TBD (run `$gsd-plan-phase 1 --prd .codex/PRD.md` to break down)
+**Wave 1**
+
+- [ ] `01-01-PLAN.md` — Establish the shadcn-vue app shell and preserve the working auth entry path.
+
+**Wave 2** *(blocked on Wave 1 completion)*
+
+- [ ] `01-02-PLAN.md` — Add the safe couple metadata settings slice end-to-end.
+
+**Wave 3** *(blocked on Wave 2 completion)*
+
+- [ ] `01-03-PLAN.md` — Finish the private dashboard experience and calm access-error UI.
+
+**Wave 4** *(blocked on Wave 3 completion)*
+
+- [ ] `01-04-PLAN.md` — Add install metadata and close Phase 1 with local repository verification.
 
 ### Phase 2: Basic Encrypted Chat
 
@@ -125,7 +140,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Basic Private Space | 0/0 | Not started | - |
+| 1. Basic Private Space | 0/4 | Planned | - |
 | 2. Basic Encrypted Chat | 0/0 | Not started | - |
 | 3. Couple Memories | 0/0 | Not started | - |
 | 4. Security Hardening | 0/0 | Not started | - |
