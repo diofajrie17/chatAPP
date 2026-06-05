@@ -1,0 +1,58 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function isSelf(userId) {
+      return signedIn() && request.auth.uid == userId;
+    }
+
+    function hasValidCoupleShape(data) {
+      return data.memberIds is list
+        && data.memberIds.size() == 2
+        && data.memberIds[0] is string
+        && data.memberIds[1] is string
+        && data.memberIds[0] != data.memberIds[1]
+        && data.anniversaryDate is string
+        && (!('displayName' in data) || data.displayName is string);
+    }
+
+    function isExistingCoupleMember() {
+      return signedIn()
+        && hasValidCoupleShape(resource.data)
+        && request.auth.uid in resource.data.memberIds;
+    }
+
+    function isSafeCoupleMetadataUpdate() {
+      return isExistingCoupleMember()
+        && hasValidCoupleShape(request.resource.data)
+        && request.resource.data.memberIds == resource.data.memberIds
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['displayName', 'anniversaryDate']);
+    }
+
+    match /users/{userId} {
+      allow get: if isSelf(userId);
+      allow list: if false;
+      allow create, update, delete: if false;
+    }
+
+    match /users/{userId}/{document=**} {
+      allow read, write: if false;
+    }
+
+    match /couples/{coupleId} {
+      allow get: if isExistingCoupleMember();
+      allow list: if false;
+      allow create: if false;
+      allow update: if isSafeCoupleMetadataUpdate();
+      allow delete: if false;
+    }
+
+    match /couples/{coupleId}/{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

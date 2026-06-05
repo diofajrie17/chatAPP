@@ -30,13 +30,15 @@ input {
 }
 
 .auth-page,
-.dashboard-page {
+.dashboard-page,
+.settings-page {
   margin: 0 auto;
   max-width: 1120px;
   padding: 32px 20px;
 }
 
-.auth-page {
+.auth-page,
+.settings-page {
   display: grid;
   min-height: 100vh;
   place-items: center;
@@ -57,7 +59,13 @@ input {
   padding: 30px;
 }
 
-.auth-form {
+.settings-panel {
+  width: min(100%, 640px);
+  padding: 24px;
+}
+
+.auth-form,
+.settings-form {
   display: grid;
   gap: 18px;
   margin-top: 28px;
@@ -79,8 +87,26 @@ input {
   margin-bottom: 28px;
 }
 
+.settings-header {
+  align-items: start;
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
+}
+
+.settings-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.settings-status {
+  color: #687174;
+  margin-top: 24px;
+}
+
 .dashboard-header h1,
-.auth-panel h1 {
+.auth-panel h1,
+.settings-panel h1 {
   margin: 0;
   font-size: 40px;
   line-height: 1;
@@ -174,6 +200,11 @@ input {
     flex-direction: column;
   }
 
+  .settings-header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
   .feature-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -185,8 +216,15 @@ input {
   }
 
   .dashboard-header h1,
-  .auth-panel h1 {
+  .auth-panel h1,
+  .settings-panel h1 {
     font-size: 32px;
+  }
+
+  .settings-actions,
+  .settings-actions button,
+  .settings-header button {
+    width: 100%;
   }
 
   .feature-grid {
