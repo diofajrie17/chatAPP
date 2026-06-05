@@ -11,7 +11,7 @@ The MVP moves from a private two-person Firebase foundation to encrypted realtim
 - Integer phases (1, 2, 3): Planned milestone work
 - Decimal phases (2.1, 2.2): Urgent insertions (marked with INSERTED)
 
-- [ ] **Phase 1: Basic Private Space** - Finish and verify the two-user Nuxt/Firebase private space foundation and GitHub repository connection.
+- [x] **Phase 1: Basic Private Space** - Finish and verify the two-user Nuxt/Firebase private space foundation and GitHub repository connection. (completed 2026-06-05)
 - [ ] **Phase 2: Basic Encrypted Chat** - Add client-side encrypted realtime text chat and generic message notifications.
 - [ ] **Phase 3: Couple Memories** - Add encrypted notes, shared photo album, anniversary enhancements, and personalization.
 - [ ] **Phase 4: Security Hardening** - Add rules tests, encryption tests, threat model, XSS/CSP review, and privacy checks.
@@ -34,7 +34,7 @@ The MVP moves from a private two-person Firebase foundation to encrypted realtim
   5. The app has the PWA metadata baseline needed for Add to Home Screen testing.
   6. Local git remote `origin` is configured to `https://github.com/diofajrie17/chatAPP.git` for fetch and push.
 
-**Plans:** 3/4 plans executed
+**Plans:** 4/4 plans complete
 
 Plans:
 
@@ -140,7 +140,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Basic Private Space | 3/4 | In Progress|  |
+| 1. Basic Private Space | 4/4 | Complete   | 2026-06-05 |
 | 2. Basic Encrypted Chat | 0/0 | Not started | - |
 | 3. Couple Memories | 0/0 | Not started | - |
 | 4. Security Hardening | 0/0 | Not started | - |
