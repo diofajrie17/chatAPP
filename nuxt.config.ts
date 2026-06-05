@@ -10,6 +10,26 @@ export default defineNuxtConfig({
   tailwindcss: {
     cssPath: '~/assets/css/main.css'
   },
+  app: {
+    head: {
+      link: [
+        {
+          rel: 'manifest',
+          href: '/manifest.webmanifest'
+        }
+      ],
+      meta: [
+        {
+          name: 'theme-color',
+          content: '#2f4d4f'
+        },
+        {
+          name: 'apple-mobile-web-app-title',
+          content: 'Our Private Space'
+        }
+      ]
+    }
+  },
   runtimeConfig: {
     public: {
       firebaseApiKey: '',
