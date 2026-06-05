@@ -87,6 +87,18 @@ input {
   margin-bottom: 28px;
 }
 
+.dashboard-actions,
+.status-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.status-actions {
+  margin-top: 16px;
+}
+
 .settings-header {
   align-items: start;
   display: flex;
@@ -143,26 +155,43 @@ input {
   padding: 24px;
 }
 
+.status-panel h2 {
+  font-size: 20px;
+  line-height: 1.25;
+  margin: 0 0 8px;
+}
+
+.status-panel p {
+  margin: 0;
+}
+
 .anniversary-panel {
   margin-bottom: 24px;
 }
 
 .anniversary-panel h2 {
   color: #2f4d4f;
-  font-size: clamp(2.3rem, 8vw, 5rem);
+  font-size: 56px;
   line-height: 0.95;
   margin: 0;
+}
+
+.anniversary-badge {
+  margin-top: 16px;
 }
 
 .feature-grid {
   display: grid;
   gap: 16px;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .feature-card {
+  box-shadow: none;
   min-height: 190px;
+  opacity: 0.82;
   padding: 20px;
+  pointer-events: none;
 }
 
 .feature-card-header {
@@ -178,16 +207,6 @@ input {
   margin: 0;
 }
 
-.feature-card span {
-  border-radius: 999px;
-  background: #e7f0ee;
-  color: #2f4d4f;
-  flex: 0 0 auto;
-  font-size: 0.75rem;
-  font-weight: 800;
-  padding: 6px 8px;
-}
-
 .feature-card p {
   color: #5c6467;
   line-height: 1.55;
@@ -198,6 +217,10 @@ input {
   .dashboard-header {
     align-items: stretch;
     flex-direction: column;
+  }
+
+  .dashboard-actions {
+    justify-content: flex-start;
   }
 
   .settings-header {
@@ -221,9 +244,15 @@ input {
     font-size: 32px;
   }
 
+  .anniversary-panel h2 {
+    font-size: 40px;
+  }
+
   .settings-actions,
   .settings-actions button,
-  .settings-header button {
+  .settings-header button,
+  .dashboard-actions,
+  .dashboard-actions button {
     width: 100%;
   }
 
