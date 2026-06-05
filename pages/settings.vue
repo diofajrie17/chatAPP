@@ -4,6 +4,7 @@ import Button from '~/components/ui/button/Button.vue'
 import Card from '~/components/ui/card/Card.vue'
 import Input from '~/components/ui/input/Input.vue'
 import Label from '~/components/ui/label/Label.vue'
+import { isValidAnniversaryDate } from '~/composables/useCoupleSpace'
 
 const {
   couple,
@@ -43,20 +44,24 @@ const submitSettings = async () => {
     return
   }
 
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(nextAnniversaryDate)) {
+  if (!isValidAnniversaryDate(nextAnniversaryDate)) {
     validationError.value = 'Choose a valid anniversary date.'
     return
   }
 
-  await updateCoupleMetadata({
-    anniversaryDate: nextAnniversaryDate,
-    displayName: nextDisplayName
-  })
+  try {
+    await updateCoupleMetadata({
+      anniversaryDate: nextAnniversaryDate,
+      displayName: nextDisplayName
+    })
 
-  successMessage.value = 'Private space updated.'
-  window.setTimeout(() => {
-    void navigateTo('/dashboard')
-  }, 700)
+    successMessage.value = 'Private space updated.'
+    window.setTimeout(() => {
+      void navigateTo('/dashboard')
+    }, 700)
+  } catch {
+    successMessage.value = null
+  }
 }
 </script>
 

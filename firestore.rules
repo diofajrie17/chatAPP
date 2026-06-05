@@ -17,6 +17,7 @@ service cloud.firestore {
         && data.memberIds[1] is string
         && data.memberIds[0] != data.memberIds[1]
         && data.anniversaryDate is string
+        && data.anniversaryDate.matches('^\\d{4}-\\d{2}-\\d{2}$')
         && (!('displayName' in data) || data.displayName is string);
     }
 

@@ -52,6 +52,12 @@ export const useFirebaseAuth = () => {
   const logout = async () => {
     await signOut(nuxtApp.$firebase.auth)
     user.value = null
+    useState('couple:profile', () => null).value = null
+    useState('couple:current', () => null).value = null
+    useState('couple:error', () => null).value = null
+    useState('couple:accessErrorCode', () => null).value = null
+    useState('couple:isLoading', () => false).value = false
+    useState('couple:isUpdating', () => false).value = false
     await navigateTo('/login')
   }
 

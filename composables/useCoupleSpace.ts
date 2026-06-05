@@ -31,8 +31,25 @@ const createAccessError = (code: CoupleAccessErrorCode): CoupleAccessError => ({
   message: accessMessages[code]
 })
 
-const isValidAnniversaryDate = (value: string) =>
-  /^\d{4}-\d{2}-\d{2}$/.test(value)
+export const isValidAnniversaryDate = (value: string) => {
+  const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(value)
+
+  if (!match) {
+    return false
+  }
+
+  const [, yearText, monthText, dayText] = match
+  const year = Number(yearText)
+  const month = Number(monthText)
+  const day = Number(dayText)
+  const parsed = new Date(year, month - 1, day)
+
+  return (
+    parsed.getFullYear() === year &&
+    parsed.getMonth() === month - 1 &&
+    parsed.getDate() === day
+  )
+}
 
 const isValidCouple = (value: Couple, uid: string) =>
   Array.isArray(value.memberIds) &&
@@ -55,11 +72,24 @@ export const useCoupleSpace = () => {
   const nuxtApp = useNuxtApp()
   const { user } = useFirebaseAuth()
 
+  const clearCoupleSpace = () => {
+    profile.value = null
+    couple.value = null
+  }
+
+  const resetCoupleSpace = () => {
+    clearCoupleSpace()
+    error.value = null
+    accessErrorCode.value = null
+    isLoading.value = false
+    isUpdating.value = false
+  }
+
   const loadCoupleSpace = async () => {
+    clearCoupleSpace()
+
     if (!user.value) {
-      profile.value = null
-      couple.value = null
-      accessErrorCode.value = null
+      resetCoupleSpace()
       return
     }
 
@@ -103,6 +133,7 @@ export const useCoupleSpace = () => {
       profile.value = nextProfile
       couple.value = nextCouple
     } catch (loadError) {
+      clearCoupleSpace()
       console.error('Unable to load couple space', loadError)
       const accessError =
         loadError &&
@@ -168,6 +199,7 @@ export const useCoupleSpace = () => {
     isUpdating,
     loadCoupleSpace,
     profile,
+    resetCoupleSpace,
     updateCoupleMetadata
   }
 }
